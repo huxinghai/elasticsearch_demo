@@ -1,5 +1,5 @@
 <%= form_tag products_path, :method => :get do %>
-  <input type='text' name='keyword' value="<%=params[:keyword] %>"  />
+  <input type='text' name='keyword' placeholder="keyword" value="<%=params[:keyword] %>"  />
   <input type='submit' value='搜索' />
 <% end %>
 <h1>Listing products</h1>
