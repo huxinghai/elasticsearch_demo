@@ -1,3 +1,7 @@
+<%= form_tag products_path, :method => :get do %>
+  <input type='text' name='keyword' value="<%=params[:keyword] %>"  />
+  <input type='submit' value='搜索' />
+<% end %>
 <h1>Listing products</h1>
 
 <table>
@@ -20,9 +24,9 @@
         <td><%= product.price %></td>
         <td><%= product.number %></td>
         <td><%= product.author %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Show', product %></td>
+        <td><%#= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

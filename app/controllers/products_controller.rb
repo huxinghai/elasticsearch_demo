@@ -4,7 +4,17 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = if params[:keyword].nil?
+      ProductsIndex.all
+    else
+      ProductsIndex.query({
+        :multi_match => {
+          query: params[:keyword],
+          operator: "and",
+          fields: [ "name^2", "description" ]
+        }
+      })
+    end
   end
 
   # GET /products/1
